@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "name": "Super rims",
+      "description": "model: Spider-76. 4x in one pack !",
+      "price": 434
+    },
+	{
+      "id": 1,
+      "name": "Extra tires",
+      "description": "model: Goodnight. 1 in a box",
+      "price": 220
+    }
+  ],
+  "orders": [
+    {
+      "id": 0,
+      "createDate": "2019-02-22",
+      "customerId": 2,
+      "total": 490.50,
+      "items": []
+    }
+  ],
+  "customers": [
+    {
+      "id": 0,
+      "name": "Jan",
+      "lastName": "Kowalski"
+    },
+    {
+      "id": 1,
+      "name": "Anna",
+      "lastName": "Nowak"
+    },
+    {
+      "id": 2,
+      "name": "Janina",
+      "lastName": "Romanowska"
+    }
+  ]
+}

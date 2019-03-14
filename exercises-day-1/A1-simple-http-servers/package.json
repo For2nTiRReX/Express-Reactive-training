@@ -1,0 +1,16 @@
+{
+  "name": "a1-simple-http-servers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "simple-http":"node simple-http",
+    "simple-express":"node simple-with-express"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
