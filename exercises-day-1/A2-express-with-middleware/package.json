@@ -6,16 +6,21 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "start:prod": "set NODE_ENV=production& node src/index.js",
+    "eslint": "eslint src",
+    "eslint-init": "eslint --init",
     "debug": "set DEBUG=express:* & nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "eslint": "^5.15.1",
     "nodemon": "1.18.10"
   }
 }

@@ -5,9 +5,9 @@ const adapter = new FileSync('db.json')
 
 const db = low(adapter)
 
-exports.db = (databaseName) => {
+exports.db = (tableName) => {
 
-	const base = db.get(databaseName)
+	const base = db.get(tableName)
 
 	return {
 		fetchAll(filter) {

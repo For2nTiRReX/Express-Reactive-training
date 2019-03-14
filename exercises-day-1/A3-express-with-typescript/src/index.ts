@@ -21,7 +21,8 @@ const app: Express = express();
 app.get('/', [
 
     (req: Request, res: Response, next: NextFunction) => {
-        req.user = {name: 'Anna', lastName: 'Nowak'}
+        req.user = {name: 'Anna1', lastName: 'Nowak'}
+        req.myOtherField = {};
         next();
     },
     (req: Request, res: Response, next: NextFunction) => {
@@ -35,7 +36,7 @@ app.get('/', [
     res.json({name, lastName})
 })
 
-// 404 handler:
+// 404 handler sthr:
 app.use((req: Request, res: Response) => {
     res.json({ error: { message: 'Not found', url: req.url} })
 })
@@ -51,7 +52,7 @@ const server = app.listen(process.env.PORT || 4040, () => {
     console.log(`Running on env: ${process.env.NODE_ENV} | ${app.get('env')}`)
 });
 
-server.on('error', (error) => {
+server.on('error', (error: Error) => {
     console.error('Error in application', error);
 })
 

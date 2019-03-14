@@ -8,7 +8,19 @@ const {attachRoutes} = require('./routes');
 
 const app = express();
 
+app.use(express.json());
 app.use(loggerMiddleware)
+
+/*
+const router = express.Router();
+
+router.get('', (req, res) => {});
+router.post('', (req, res) => {});
+router.get(':id', (req, res) => {});
+
+app.use('/users', router);
+*/
+
 
 // GO inside the attachRoutes to see the #TASKs
 attachRoutes(app);

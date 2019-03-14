@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "simple-http":"node simple-http",
-    "simple-express":"node simple-with-express"
+    "simple-http": "nodemon simple-http",
+    "simple-express": "nodemon simple-with-express"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^7.0.0",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

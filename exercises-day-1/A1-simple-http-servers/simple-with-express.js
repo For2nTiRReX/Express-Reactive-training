@@ -11,11 +11,18 @@ const app = express();
  * How can you manipulate the HTTP status code response?
  */
 app.get('/', (request, response) => {
-    
+    // const headers = request.headers;
+    const { headers } = request;
 
+    console.log('Hello im here !');
+
+    response.setHeader('X-Powered-By', 'By us!')
+    // Depricated:
+    // response.json(200, headers);
+    response.status(404).json(headers);
 })
 
-app.listen(3031,  () => {
+const server = app.listen(3031,  () => {
     console.log('Express-server listening on port: 3031')
 })
 
@@ -33,3 +40,6 @@ app.listen(3031,  () => {
  * Attach global error handler for server 
  * (catching the server application errors)
  */
+server.on('error', (error) => {
+    console.error('Express server error:\n', error)
+})
