@@ -1,4 +1,5 @@
-
+import { fromEvent } from "rxjs";
+import { mapTo, scan } from "rxjs/operators";
 
 /**
   TASK:
@@ -12,4 +13,10 @@
 const h2Counter = document.querySelector("#counter");
 
 // SOLVE:
+const click$ = fromEvent(document, 'click').pipe(mapTo(1))
 
+
+click$.pipe(scan((acc, val) => acc + val))
+  .subscribe((one) => {
+    h2Counter.innerText = one;
+  })

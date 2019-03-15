@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 
 import { interval } from 'rxjs';
+import { map, tap, takeWhile, bufferCount } from 'rxjs/operators';
 
 /**
   TASK:
@@ -32,4 +33,20 @@ function makeLi(innerText) {
 }
 
 // SOLVE:
-const second$ = interval(1000)
+const second$ = interval(1000).pipe(map(x => x+1))
+
+
+second$.subscribe((sec) => {
+  divTime.innerText = sec;
+})
+
+second$
+  .pipe(
+    bufferCount(2),
+    map(() => lawyerEnter.next().value),
+    tap((lawyer) => console.log('The lawyer', lawyer)),
+    takeWhile((lawyer) => lawyer)
+  )
+  .subscribe((lawyer) => {
+    ulLawyers.appendChild(makeLi(lawyer))
+  })

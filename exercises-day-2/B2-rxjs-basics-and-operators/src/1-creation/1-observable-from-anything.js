@@ -7,5 +7,21 @@ import { Observable } from 'rxjs'
 */
 
 const observable = new Observable((observer) => {
-	observer.next(123);
+  observer.next(123);
+  // Can behave async
+  setTimeout(() => {
+    observer.next(456);
+  }, 2000)
 });
+
+observable.subscribe((num) => {
+  console.log(num);
+})
+
+observable.subscribe((num) => {
+  console.log(num);
+})
+
+observable.subscribe((num) => {
+  console.log(num);
+})

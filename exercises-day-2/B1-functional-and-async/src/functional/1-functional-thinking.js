@@ -16,11 +16,18 @@
 */
 
 // There is some backend data - it comes to us as an array:
-const backendApiRequest = () => ['marian', 'stefan', 'jadwiga', 'henryka', 'anna'];
+const backendApiRequest = () => ['marian', 'stefan', 'jadwiga', 'henryka', 'anna', null];
 
 // SOLVE:
 const response = backendApiRequest();
 
-const result = response;
+const firsToUpper = (name) => name.charAt(0).toUpperCase() + name.substr(1);
+const paddStr = (padNumber = 20) => (str) => str.padStart(padNumber, '.');
+const isNotNull = (obj) => !!obj;
 
+const result = response.filter(isNotNull).map(firsToUpper);
+const result2 = response.filter(isNotNull).map(firsToUpper).map(paddStr(10)).join('\n');
+
+console.log(response);
 console.log(result);
+console.log(result2);

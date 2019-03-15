@@ -26,7 +26,8 @@ const bankAPI = {
             EUR: 4.32559,
             PLN: 1
         };
-        return Promise.resolve(plnTo);
+        // return Promise.resolve(plnTo);
+        return Promise.reject(new Error('400 - no currencies'));
     }
 };
 
@@ -50,5 +51,24 @@ const cartAPI = {
  * Call the API with proper Promise usage
  */
 
-
+bankAPI.fetchCurrencies()
+    .then((currencies) => {
+        console.log(currencies);
+        // throw new Error('Sorry, cannot resolve')
+        return 'Hello'
+    })
+    .then((hello) => {
+        console.log(hello);
+        return Promise.resolve('Hello 2')
+    })
+    .then((hello2) => {
+        console.log(hello2);
+    })
+    .catch((err) => {
+        console.log(err);
+        return 'Ok, no worry';
+    })
+    .then((noWorry) => {
+        console.log(noWorry)
+    })
 

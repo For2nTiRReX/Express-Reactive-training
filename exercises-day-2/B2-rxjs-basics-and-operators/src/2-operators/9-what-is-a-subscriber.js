@@ -1,3 +1,5 @@
+import { fromEvent, merge } from "rxjs";
+import { mapTo, scan } from "rxjs/operators";
 /**
   TASK:
   Each click of buttons Add or Subtract should change the result in counter.
@@ -20,5 +22,9 @@ const subscriber = {
 };
 
 // SOLVE:
+const add$ = fromEvent(addBtn, 'click').pipe(mapTo(1));
+const minus$ = fromEvent(subBtn, 'click').pipe(mapTo(-1));
 
-
+merge(add$, minus$)
+  .pipe(scan((acc, val)=> acc + val))
+  W.subscribe(subscriber)

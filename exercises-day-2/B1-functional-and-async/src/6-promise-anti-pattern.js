@@ -14,7 +14,7 @@
     // Our Indiana Jones has an idea:
     openTheLockers.openLocker1().then((code2) => {
 
-      openTheLockers.openLocker2(code2).then((code3) => {
+      openTheLockers.openLocker2('23g7g').then((code3) => {
 
         openTheLockers.openLocker3(code3).then((code4) => {
 
@@ -23,6 +23,8 @@
           })
         })
       })
+    }).catch(err => {
+      console.log(err);
     })
     // it works - but, the code above is not good
 
@@ -31,5 +33,17 @@
 	 * TASK:
 	 * Help Indiana Jones to make those API calls the "Promise way"
 	 */
-    
+    openTheLockers.openLocker1()
+        .then((code2) => openTheLockers.openLocker2(code2))
+        .then((code3) => {
+          return openTheLockers.openLocker3(code3)
+        })
+        .then(openTheLockers.openLocker4)
+        .then((treasure) => {
+          console.log(treasure);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+
   })();

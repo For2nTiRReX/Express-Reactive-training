@@ -17,8 +17,10 @@ const router = express.Router();
 router.get('', (req, res) => {});
 router.post('', (req, res) => {});
 router.get(':id', (req, res) => {});
+router.get(':id/orders', (req, res) => {});
+router.get(':id/orders/:orderId', (req, res) => {});
 
-app.use('/users', router);
+app.use('/customers', router);
 */
 
 

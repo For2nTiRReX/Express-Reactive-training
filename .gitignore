@@ -1,2 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 exercises-day-1/**/node_modules
+exercises-day-1/**/dist
+exercises-day-2/**/node_modules
+exercises-day-2/**/.cache
+exercises-day-2/**/dist

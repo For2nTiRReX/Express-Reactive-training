@@ -20,9 +20,25 @@ const mySuperLawyer = new Observable( (observer) => {
     if(quote) {
       observer.next(quote);
     } else {
+      try {
+        throw new Error('Sorry');
+      } catch(e) {
+        observer.error(e);
+      }
       observer.complete();
       clearInterval(interval);
     }
   }, 500)
 
 } );
+
+
+mySuperLawyer.subscribe(
+  (answer) => {
+    console.log(answer)
+  },
+  (err) => { console.log(err) },
+  () => {
+    console.log('Completed !')
+  }
+)

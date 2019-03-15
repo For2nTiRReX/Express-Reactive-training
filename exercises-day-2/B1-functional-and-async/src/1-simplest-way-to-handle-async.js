@@ -46,6 +46,7 @@ bankAPI.fetchCurrencies((bankCurrency) => {
     console.log(bankCurrency);
     cartAPI.getProducts((products) => {
         console.log(products)
+        console.log(products[1].price * bankCurrency.USD)
     })
 })
 

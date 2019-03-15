@@ -35,3 +35,9 @@ const sumOfElements = [1,2,3,4,5].reduce((acc, value) => acc + value);
 */
 const userOptions = 'name,lastName,age,profession';
 
+const names = userOptions.split(',').reduce((obj, key) => {
+  obj[key] = '';
+  return obj;
+}, {});
+
+console.log(names);

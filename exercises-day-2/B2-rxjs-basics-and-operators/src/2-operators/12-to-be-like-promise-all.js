@@ -3,7 +3,8 @@
    Calculate dimensions of the object, taking values form inputs: height, width i length
 
    */
-  import { fromEvent } from 'rxjs'
+  import { fromEvent, combineLatest } from 'rxjs'
+  import { map } from 'rxjs/operators'
 
 
   // DOM Wrappers:
@@ -12,6 +13,14 @@
   const inputLength = document.querySelector('input[name=length]');
   const resultDiv = document.querySelector('#result');
 
-  const height$ = fromEvent(inputHeight, 'keyup')
-  const width$ = fromEvent(inputWidth, 'keyup')
-  const length$ = fromEvent(inputLength, 'keyup')
+  // ev.target.value
+
+  const height$ = fromEvent(inputHeight, 'keyup').pipe(map(ev => ev.target.value))
+  const width$ = fromEvent(inputWidth, 'keyup').pipe(map(ev => ev.target.value))
+  const length$ = fromEvent(inputLength, 'keyup').pipe(map(ev => ev.target.value))
+
+  combineLatest(height$, width$, length$)
+    .pipe(map( (valArr) => valArr.reduce((acc, val) => acc * val)))
+    .subscribe((val) => {
+      resultDiv.innerText = val;
+    })

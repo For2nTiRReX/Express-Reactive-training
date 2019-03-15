@@ -1,4 +1,5 @@
 import { interval }  from 'rxjs';
+import { take, tap, map }  from 'rxjs/operators';
 
 /**
  TASK:
@@ -9,3 +10,22 @@ import { interval }  from 'rxjs';
 */
 
 const number$ = interval(800);
+
+const hello$ = number$.pipe(
+    tap((n) => {
+        console.log(n)
+    }),    
+    take(4), 
+    map(num => 'Hello world ' + num)
+);
+
+
+const mySubscription = hello$.subscribe((world) => {
+    console.log(world);
+})
+
+mySubscription.unsubscribe();
+
+hello$.pipe(take(2)).subscribe((world) => {
+    console.log('Sub #2 '+ world);
+})

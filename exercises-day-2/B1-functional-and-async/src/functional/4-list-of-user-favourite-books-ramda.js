@@ -35,3 +35,10 @@ const api = {
 
 const response = api.users;
 
+const result = R.pipe(
+  R.pluck('books'),
+  R.flatten,
+  R.pluck('quote')
+)(response)
+
+console.log(result)

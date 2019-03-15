@@ -30,4 +30,15 @@ const api = {
 };
 
 // SOLUTION:
-const response = api.users;
+const response = api.users //??? 
+
+const flattenArray = (acc, arr) => [...acc, ...arr];
+const flattenArray2 = (acc, arr) => {
+  acc.push(...arr);
+  return acc;
+};
+
+const pluck = (fieldName) => (res) => res[fieldName];
+
+console.log(response.map(res => res.books).reduce(flattenArray2, []).map(res => res.quote));
+console.log(response.map(pluck('books')).reduce(flattenArray2, []).map(pluck('quote')));

@@ -1,5 +1,5 @@
 import { fromEvent, interval } from 'rxjs'
-import { share, shareReplay, switchMap, take } from 'rxjs/operators'
+import { share, shareReplay, switchMap, take, map } from 'rxjs/operators'
 
   /**
     TASK:
@@ -21,3 +21,37 @@ import { share, shareReplay, switchMap, take } from 'rxjs/operators'
   const second$ = interval(1000).pipe( take(8), share(), shareReplay() );
 
   // SOLVE:
+  const btn1Click$ = fromEvent(btn1Start, 'click');
+  const btn2Click$ = fromEvent(btn2Start, 'click');
+
+  // THIS IS WRONG:
+  /*
+  let sub;
+  btn1Click$.subscribe(() => {
+    if(sub) {
+      sub.unsubscribe();
+    }
+    sub = second$.subscribe((val) => {
+      counter1Div.innerText = val;
+    })
+  })
+  */
+  /**
+     |------c-------c--------c---->
+
+            |       |    
+             \-0-1-|> \-0-1-2|> 
+   * 
+   * 
+   */
+  btn1Click$
+    .pipe(switchMap(() => second$))
+    .subscribe((val) => {
+      counter1Div.innerText = val;
+    })
+
+  btn2Click$
+    .pipe(switchMap(() => second$))
+    .subscribe((val) => {
+      counter2Div.innerText = val;
+    })
