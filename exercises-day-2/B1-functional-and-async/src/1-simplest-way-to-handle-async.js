@@ -34,9 +34,9 @@ const cartAPI = {
 
 /**
  * 
- * THE GOAL:
+ * TASK:
  * 
- * How to access to actual PLN - to other currencies and calculate cart value in USD?
+ * How to access to "actual PLN - to other currencies" and calculate cart value in USD?
  * 
  * You need to fetch the currencies and the cart
  * Notice: both operations are asynchronous

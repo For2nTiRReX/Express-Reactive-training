@@ -1,5 +1,10 @@
 /**
  * "Promise from anything"
+ *
+ * INTRO:
+ * You can decide how your promise logic goes.
+ * Promise can be made out of anything.
+ *
  * */
 
 
@@ -12,3 +17,9 @@ const myAsyncPromise = new Promise( (resolve) => {
         resolve(4321);
     }, 2000);
 });
+
+/**
+ *
+ * TASK:
+ * Receive values from promises
+ */

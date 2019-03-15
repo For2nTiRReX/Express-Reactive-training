@@ -28,7 +28,7 @@
 
     /**
 	 * 
-	 * THE GOAL:
+	 * TASK:
 	 * Help Indiana Jones to make those API calls the "Promise way"
 	 */
     

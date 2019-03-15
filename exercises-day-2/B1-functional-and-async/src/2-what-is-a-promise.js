@@ -46,10 +46,9 @@ const cartAPI = {
 
 /**
  * 
- * THE GOAL:
+ * TASK:
  * Call the API with proper Promise usage
  */
 
 
 
- 

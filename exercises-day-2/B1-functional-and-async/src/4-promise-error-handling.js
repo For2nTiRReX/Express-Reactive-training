@@ -21,7 +21,7 @@
 
  /**
  * 
- * THE GOAL:
+ * TASK:
  * Call the API with proper Promise usage and error handling
  */
  getSurveyStats()

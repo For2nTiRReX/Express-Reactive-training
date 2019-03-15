@@ -14,7 +14,7 @@
   (function canMyKiteFlyToday() {
      /**
 	 * 
-	 * THE GOAL:
+	 * TASK:
 	 * You need to get all of the informations in order to calculate the weather 
 	   Try to take them all at once instead of chaining.
 	 */

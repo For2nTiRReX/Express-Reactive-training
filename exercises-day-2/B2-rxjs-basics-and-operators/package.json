@@ -1,0 +1,20 @@
+{
+  "name": "b2-rxjs-basics-and-operators",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html src/2-operators/7-simple-dom-integration.html src/2-operators/8-more-advanced-dom-integration.html src/2-operators/9-what-is-a-subscriber.html src/2-operators/10-cold-and-hot-observable.html src/2-operators/12-to-be-like-promise-all.html --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "rxjs": "^6.4.0"
+  }
+}
