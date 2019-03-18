@@ -13,7 +13,7 @@ class SimpleService {
   }
 
   getNumbers() {
-    return this.number$;
+    return this.number$.asObservable();
   }
 }
 
@@ -42,5 +42,5 @@ serviceInstance
 (function deepDownInTheOceanOfModules(){
 
   // Uncomment line below
-  // timer(4000).pipe(mapTo('TROLL')).subscribe(serviceInstance.getNumbers())
+  timer(4000).pipe(mapTo('TROLL')).subscribe(serviceInstance.getNumbers())
 }());

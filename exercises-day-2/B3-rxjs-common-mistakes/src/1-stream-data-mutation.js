@@ -4,9 +4,7 @@ const { map } = require('rxjs/operators');
 
   /**
    TASK:
-   1. Odkomentuj mutację w subskrypcji: Sub - #1, zobacz co się stało w Sub - #2.
-      Dlaczego tak się dzieje?
-   2. Zaproponuj rozwiązania problemu
+   
 
    */
   
@@ -20,7 +18,8 @@ const { map } = require('rxjs/operators');
   name$.subscribe(user => {
     console.log(user.name)
     // Uncomment line below (what will happen?)
-    // user.name += '_troll';
+    const myUser = {...user};
+    myUser.name += '_troll';
   });
 
   setTimeout(() => {

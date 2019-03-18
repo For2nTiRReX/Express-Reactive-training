@@ -1,3 +1,6 @@
+import { ajax } from "rxjs/ajax";
+import { of, interval } from "rxjs";
+import { switchMap, take } from "rxjs/operators";
 
 
 /**
@@ -12,4 +15,17 @@
  */
 
 // SOLVE:
+const ajaxCall$ = ajax.getJSON('https://jsonplaceholder.typicode.com/users/1')
+const fakeAjaxCall$ = of({username: 'Myname'});
+const hello$ = of('Hello world')
+const second$ = interval(200).pipe(take(5));
 
+ajaxCall$
+    .pipe(
+        switchMap((user) => of(user.username)),
+        switchMap(() => hello$),
+        switchMap(() => second$),
+    )
+    .subscribe((seconds) => {
+        console.log(seconds);
+    })
